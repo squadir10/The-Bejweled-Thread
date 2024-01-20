@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://eistju1glcee"]
+[gd_scene load_steps=8 format=3 uid="uid://eistju1glcee"]
 
+[ext_resource type="FontFile" uid="uid://du3fnhmv7x02f" path="res://fonts/DMMono-Medium.ttf" id="1_gmv18"]
 [ext_resource type="Script" path="res://Input.cs" id="1_nialo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiekk"]
@@ -19,6 +20,8 @@ border_width_top = 5
 border_color = Color(0.435294, 0.415686, 0.376471, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ojsvp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0fpx"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -60,7 +63,25 @@ size_flags_vertical = 8
 size_flags_stretch_ratio = 7.06
 theme_override_styles/panel = SubResource("StyleBoxFlat_78noq")
 
-[node name="Input" type="LineEdit" parent="Background/MarginContainer/Rows/GameInfo/InputArea"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/Rows/GameInfo/InputArea"]
 layout_mode = 2
+
+[node name="Caret" type="Label" parent="Background/MarginContainer/Rows/GameInfo/InputArea/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_gmv18")
+theme_override_font_sizes/font_size = 30
+text = " > "
+
+[node name="Input" type="LineEdit" parent="Background/MarginContainer/Rows/GameInfo/InputArea/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_gmv18")
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ojsvp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q0fpx")
+max_length = 40
+caret_blink = true
+caret_blink_interval = 0.5
 script = ExtResource("1_nialo")
