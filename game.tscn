@@ -1,4 +1,20 @@
-[gd_scene format=3 uid="uid://eistju1glcee"]
+[gd_scene load_steps=4 format=3 uid="uid://eistju1glcee"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiekk"]
+bg_color = Color(0.0196078, 0.0980392, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30abi"]
+bg_color = Color(0.0509804, 0.172549, 0.309804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.690196, 0.521569, 0.129412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78noq"]
+bg_color = Color(0.231373, 0.309804, 0.427451, 1)
+border_width_top = 5
+border_color = Color(0.690196, 0.521569, 0.129412, 1)
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -7,3 +23,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eiekk")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Rows" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+
+[node name="GameInfo" type="PanelContainer" parent="Background/MarginContainer/Rows"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_30abi")
+
+[node name="InputArea" type="PanelContainer" parent="Background/MarginContainer/Rows/GameInfo"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 8
+size_flags_stretch_ratio = 7.06
+theme_override_styles/panel = SubResource("StyleBoxFlat_78noq")
